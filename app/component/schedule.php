@@ -156,7 +156,7 @@ class Schedule{
             }
             return $schedule;
         } catch (\Exception $th) {
-            throw $date != "now" ? new \Exception("На цей день пар немає", 1): $th;
+            throw $date != "now" && $th->getCode() == 0 ? new \Exception("На цей день пар немає", 1): $th;
         }
         
 

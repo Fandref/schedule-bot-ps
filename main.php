@@ -163,45 +163,7 @@ class Main{
         
 
     }
-    
-    
-    
 
-    // private function start(){
-    //     if(!$this->storage->existUser($id)){
-    //         $this->bot->onCommand("start", function(){
-    //             $this->bot->sendMessage($id, [
-    //                 'text' => "Привіт! Я <b>NPURozkladBot</b> 🤖. Якщо тобі потрібний розклад пар, я обов'язково з цим допоможу. Все що протрібно - дати відповідь на декілька моїх запитань📝",
-    //                 'reply_markup' => [
-    //                     'remove_keyboard' => true
-    //                 ]
-    //             ]);
-    //             $this->bot->sendMessage($id, [
-    //                 'text' => "Хто ви?",
-    //                 'reply_markup' => [
-    //                     'inline_keyboard' => [
-    //                         [
-    //                             ['text' => 'Студент', 'callback_data' => 'role_student']
-    //                         ],
-    //                         [
-    //                             ['text' => 'Викладач', 'callback_data' => 'role_teacher']
-    //                         ]
-    //                     ]
-    //                 ]
-                
-    //             ]);
-    //         });
-        
-            
-        
-           
-    //     }
-
-
-
-        
-
-    // }
     public function __set($name, $value){
         $this->registry->set($name, $value);
     }
@@ -211,7 +173,6 @@ class Main{
     }
 
     private function toCallback(string $name, array $params = null, $object = null){
-        // var_dump("<br><br>");
         $object = $object ?? $this;
 
        

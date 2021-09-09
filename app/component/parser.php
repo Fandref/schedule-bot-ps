@@ -1,8 +1,5 @@
 <?php
 
-// require "simple_html_dom.php";
-
-
 
 class Parser{
     
@@ -41,13 +38,16 @@ class Parser{
 
                 return $dom;
             } catch (\Throwable $th) {
-                throw new \Exception("Не можу отримати доступ до сайту", 1);
+                if($th->getCode() == 0)
+                    throw new \Exception("Не можу отримати доступ до сайту", 1);
+                else
+                    throw $th;
             }
             
            
         }
         else
-            throw new \Exception("Якась халепа, не знаю для кого шукати розклад", 0);
+            throw new \Exception("Якась халепа, не знаю для кого шукати розклад", 1);
             
         
     }
@@ -91,7 +91,13 @@ class Parser{
             }
             return $parse_data;
         } catch (\Throwable $th) {
-            throw $th;
+            if($th->getCode() == 0){
+                throw new \Exception("Схоже, сервер університету не витримав лихої долі 😅", 2);
+            }
+            else{
+                throw $th;
+            }
+            
             
         }
             

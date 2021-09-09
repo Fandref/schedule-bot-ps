@@ -38,9 +38,9 @@ class Bot{
         return json_decode(file_get_contents('php://input'), JSON_OBJECT_AS_ARRAY) ?? NULL;
     }
  
-    private function getUpdates(){
+    public function getUpdates(int $offset = 0){
         $data = $this->sendRequest("getUpdates", [
-            'offset' => 247900220
+            'offset' => $offset
         ]);
    
         return array_pop($data['result']) ?? null;
